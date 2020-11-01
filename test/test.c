@@ -1,6 +1,4 @@
 #include "..src/calc.h"
-#define GREEN "\x1B[32m"
-#define KNRM "\x1B[0m"
 
 void test_plus() {
     double test_a = 1;
