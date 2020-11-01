@@ -8,7 +8,7 @@ void test_plus() {
     result_test = test_a + test_b;
 
     if(result_test == plus(test_a, test_b)) {
-        printf("%s OK %s\n");
+        printf(" OK \n");
     } else {
         puts("Failure");
     }
@@ -22,7 +22,7 @@ void test_minus() {
     result_test = test_a - test_b;
 
     if(result_test == minus(test_a, test_b)) {
-        printf("%s OK %s\n");
+        printf(" OK \n");
     } else {
         puts("Failure");
     }
@@ -38,7 +38,7 @@ void test_plus1() {
     result_test = test_a + test_b;
 
     if(result_test == plus(test_a, test_b)) {
-        printf("%s OK %s\n");
+        printf(" OK \n");
     } else {
         puts("Failure");
     }
@@ -52,7 +52,7 @@ void test_minus1() {
     result_test = test_a - test_b;
 
     if(result_test == minus(test_a, test_b)) {
-        printf("%s OK %s\n");
+        printf(" OK \n");
     } else {
         puts("Failure");
     }
