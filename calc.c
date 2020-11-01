@@ -1,4 +1,3 @@
-  
 #include "calc.h"
 
 double plus(double a, double b) {
