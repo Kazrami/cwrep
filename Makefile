@@ -1,38 +1,32 @@
+.PHONY: clean all test run runtest
 
-creat :=  mkdir -p bin build/src
-fold := mkdir -p build/test
+BIN_DIR = ./bin
+BUILD_DIR = ./build
+SRC_DIR = ./src
+TEST_DIR = ./test
+FLAGS =-Wall -std=c++11
 
-all: bin/calculator
+all: $(BIN_DIR)/main
 
-folder:
-	$(creat)
+$(BIN_DIR)/main: $(BUILD_DIR)/calc.o 
+	g++ $(FLAGS) $(BUILD_DIR)/calc.o -o $(BIN_DIR)/main
 
-bin/calculator: folder build/src/calc.o build/src/program.o
-	gcc build/src/calc.o build/src/program.o -o bin/calculator 
+$(BUILD_DIR)/calc.o:
+	g++ $(FLAGS) -c $(SRC_DIR)/calc.cpp -o $(BUILD_DIR)/calc.o
+	
+test: $(BUILD_DIR)/test.o
+	g++ $(FLAGS) $(BUILD_DIR)/test.o -o $(BIN_DIR)/test
 
-build/src/program.o: src/program.c
-	gcc -c src/program.c -o build/src/program.o
-
-build/src/calc.o: src/calc.c
-	gcc -c src/calc.c -o build/src/calc.o
-
-test: bin/test
-
-folder_test:
-	$(fold)
-
-bin/test: folder_test build/test/test.o build/test/calc.o 
-	gcc build/test/calc.o build/test/test.o -o bin/test
-
-build/test/test.o: test/test.c
-	gcc -c test/test.c -o build/test/test.o 
-
-build/test/calc.o: src/calc.c
-	gcc -c src/calc.c -o build/test/calc.o
-
-.PHONY: clean
+$(BUILD_DIR)/test.o:
+	g++ $(FLAGS) -c $(TEST_DIR)/Test.cpp -o $(BUILD_DIR)/test.o
+	
+run: 
+	./bin/main
+	
+runtest:
+	./bin/test
 
 clean:
-	rm -rf build/src/*.o
-	rm -rf bin/*
-	rm -rf build/test/*.o
+	rm -f build/*.o
+	rm -f bin/main
+	rm -f bin/test
