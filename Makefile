@@ -1,4 +1,3 @@
-.PHONY: clean all test run runtest
 
 creat :=  mkdir -p bin build/src
 fold := mkdir -p build/test
